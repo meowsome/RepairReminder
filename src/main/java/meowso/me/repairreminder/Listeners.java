@@ -1,6 +1,7 @@
 package meowso.me.repairreminder;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.meta.Damageable;
@@ -26,7 +27,7 @@ public class Listeners implements Listener {
         Player player = event.getPlayer();
 
         // Cancel if player doesn't have permission
-        if (!player.hasPermission("repairreminder.remind")) return;
+        if (!player.hasPermission("repairreminder.remind") || player.getGameMode() != GameMode.SURVIVAL) return;
 
         // Get item damage info
         ItemStack item = player.getInventory().getItemInMainHand();
@@ -46,7 +47,7 @@ public class Listeners implements Listener {
         Player player = event.getPlayer();
 
         // Cancel if player doesn't have permission
-        if (!player.hasPermission("repairreminder.remind")) return;
+        if (!player.hasPermission("repairreminder.remind") || player.getGameMode() != GameMode.SURVIVAL) return;
 
         // Get item damage info
         ItemStack item = player.getInventory().getItemInMainHand();
@@ -58,7 +59,7 @@ public class Listeners implements Listener {
         int levelCost = getRepairCost(player); // Get how much it would cost to repair item
 
         // If the item is breaking, cancel event and send message
-        if (itemDamage == maxDamage) {
+        if (itemDamage == maxDamage && maxDamage > 0) {
             event.setCancelled(true);
 
             // Only send message every 1 second to prevent spam
