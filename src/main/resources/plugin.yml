@@ -1,5 +1,5 @@
 name: RepairReminder
-version: 0.0.1
+version: 0.0.2
 main: meowso.me.repairreminder.RepairReminder
 api-version: 1.18
 authors: [meowsome]
