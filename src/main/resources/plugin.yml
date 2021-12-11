@@ -1,7 +1,7 @@
 name: RepairReminder
 version: 0.0.1
 main: meowso.me.repairreminder.RepairReminder
-api-version: 1.17
+api-version: 1.18
 authors: [meowsome]
 description: Prevent breaking of tool if durability is too low but prevent use of it until it is repaired
 permissions:
