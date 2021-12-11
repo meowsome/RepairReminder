@@ -53,6 +53,8 @@ public class Listeners implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand();
         Damageable itemDamageable = (Damageable) item.getItemMeta();
 
+        if (itemDamageable == null) return;
+
         int itemDamage = itemDamageable.getDamage(); // Get item current damage
         int maxDamage = item.getType().getMaxDurability(); // Get item max damage
         String itemName = item.getItemMeta().hasDisplayName() ? item.getItemMeta().getDisplayName() : item.getType().toString().replace("_", " ").toLowerCase(); // Get item display name or name
